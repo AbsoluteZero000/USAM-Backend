@@ -16,16 +16,14 @@ import app.Backend_USAM.util.Request.StaffCreationRequest;
 @RestController
 @RequestMapping("/staff")
 public class StaffController {
-@Autowired
+    @Autowired
     StaffRepo staffRepo;
 
     public StaffController(){}
 
     @PostMapping("/create")
-    public String test(@RequestBody StaffCreationRequest req){
-
-        staffRepo.save(new Staff(req));
-        return "test";
+    public Staff test(@RequestBody StaffCreationRequest req){
+        return staffRepo.save(new Staff(req));
     }
 
     @GetMapping("/staff")

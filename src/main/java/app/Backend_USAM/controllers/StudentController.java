@@ -1,6 +1,8 @@
 package app.Backend_USAM.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.ArrayList;
+import java.sql.Date;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -8,8 +10,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
 import app.Backend_USAM.entities.Repositories.StudentRepo;
 import app.Backend_USAM.util.Request.StudentCreationRequest;
+import app.Backend_USAM.util.enums.Degree;
+import app.Backend_USAM.util.enums.Gender;
+import app.Backend_USAM.util.enums.Language;
+import app.Backend_USAM.util.enums.Skill;
 import app.Backend_USAM.entities.Student;
 
 
@@ -25,10 +32,9 @@ public class StudentController {
     }
 
     @PostMapping("/create")
-    public String test(@RequestBody StudentCreationRequest req){
+    public Student test(@RequestBody StudentCreationRequest req){
 
-        studentRepo.save(new Student(req));
-        return "test";
+        return studentRepo.save(new Student(req));
     }
 
     @GetMapping("/students")
@@ -46,6 +52,19 @@ public class StudentController {
         Student student = studentRepo.findById(id).get();
         student.edit(req);
         return studentRepo.save(student);
+    }
+
+    @GetMapping("/sample")
+    public Student getSample(){
+        ArrayList<Language> languages = new ArrayList<Language>(){{
+            add(Language.ARABIC);
+            add(Language.ENGLISH);
+        }};
+        ArrayList<Skill> skills = new ArrayList<Skill>(){{
+        add(Skill.Admin);
+        add(Skill.Bootstrap);
+        }};
+        return new Student("example", "A@gmail.com", 34, Gender.Male, "Giza, Egypt", Degree.BCS, languages ,skills, new Date(System.currentTimeMillis()), (float) 3.45, 4);
     }
 
 

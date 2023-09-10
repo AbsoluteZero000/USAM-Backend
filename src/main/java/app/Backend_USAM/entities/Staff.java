@@ -8,14 +8,23 @@ import app.Backend_USAM.util.enums.Degree;
 import app.Backend_USAM.util.enums.Gender;
 import app.Backend_USAM.util.enums.Language;
 import app.Backend_USAM.util.enums.Skill;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "students")
 public class Staff extends User{
+
     private Date joinDate;
+
     private String title;
+
+    @OneToOne(mappedBy = "head", cascade = CascadeType.ALL)
+    private Department department;
+
+
 
     private Staff(){}
     public Staff(String name, String email, int age, Gender gender, String location, Degree degree, ArrayList<Language> languages, ArrayList<Skill> skills, Date joinDate, String title){
