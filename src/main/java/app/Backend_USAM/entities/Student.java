@@ -3,6 +3,7 @@ package app.Backend_USAM.entities;
 import java.sql.Date;
 import java.util.ArrayList;
 
+import app.Backend_USAM.controllers.Request.StudentCreationRequest;
 import app.Backend_USAM.enums.Degree;
 import app.Backend_USAM.enums.Gender;
 import app.Backend_USAM.enums.Language;
@@ -23,6 +24,26 @@ public class Student extends User{
         this.admissionDate = admissionDate;
         this.year = year;
         this.gpa = gpa;
+    }
+    public Student(StudentCreationRequest req){
+        super(req.getName(), req.getEmail(),  req.getAge(), req.getGender(), req.getLocation(), req.getDegree(), req.getLanguages(), req.getSkills());
+        this.admissionDate = req.getAdmissionDate();
+        this.year = req.getYear();
+        this.gpa = req.getGpa();
+    }
+
+    public void edit(StudentCreationRequest req){
+        setName(req.getName());
+        setEmail(req.getEmail());
+        setAge(req.getAge());
+        setGender(req.getGender());
+        setLocation(req.getLocation());
+        setDegree(req.getDegree());
+        setLanguages(req.getLanguages());
+        setSkills(req.getSkills());
+        this.admissionDate = req.getAdmissionDate();
+        this.year = req.getYear();
+        this.gpa = req.getGpa();
     }
 
     public Date getAdmissionDate() {
