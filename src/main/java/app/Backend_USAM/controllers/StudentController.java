@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import app.Backend_USAM.entities.Repositories.StudentRepo;
-import app.Backend_USAM.controllers.Request.StudentCreationRequest;
+import app.Backend_USAM.util.Request.StudentCreationRequest;
 import app.Backend_USAM.entities.Student;
 
 

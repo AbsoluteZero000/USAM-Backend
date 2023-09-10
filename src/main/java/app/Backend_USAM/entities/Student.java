@@ -3,11 +3,11 @@ package app.Backend_USAM.entities;
 import java.sql.Date;
 import java.util.ArrayList;
 
-import app.Backend_USAM.controllers.Request.StudentCreationRequest;
-import app.Backend_USAM.enums.Degree;
-import app.Backend_USAM.enums.Gender;
-import app.Backend_USAM.enums.Language;
-import app.Backend_USAM.enums.Skill;
+import app.Backend_USAM.util.Request.StudentCreationRequest;
+import app.Backend_USAM.util.enums.Degree;
+import app.Backend_USAM.util.enums.Gender;
+import app.Backend_USAM.util.enums.Language;
+import app.Backend_USAM.util.enums.Skill;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 

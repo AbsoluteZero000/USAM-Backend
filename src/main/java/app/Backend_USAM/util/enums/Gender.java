@@ -1,4 +1,4 @@
-package app.Backend_USAM.enums;
+package app.Backend_USAM.util.enums;
 
 public enum Gender {
     Male,

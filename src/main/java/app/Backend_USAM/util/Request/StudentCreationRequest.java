@@ -1,12 +1,12 @@
-package app.Backend_USAM.controllers.Request;
+package app.Backend_USAM.util.Request;
 
 import java.sql.Date;
 import java.util.ArrayList;
 
-import app.Backend_USAM.enums.Degree;
-import app.Backend_USAM.enums.Gender;
-import app.Backend_USAM.enums.Language;
-import app.Backend_USAM.enums.Skill;
+import app.Backend_USAM.util.enums.Degree;
+import app.Backend_USAM.util.enums.Gender;
+import app.Backend_USAM.util.enums.Language;
+import app.Backend_USAM.util.enums.Skill;
 
 public class StudentCreationRequest {
     private String name;
