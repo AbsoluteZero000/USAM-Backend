@@ -29,10 +29,7 @@ public class Department {
     private Department(){}
 
     public Department(DepartmentCreationRequest req){
-        this.name = req.getName();
-        this.startDate = req.getStartDate();
-        this.depDetails = req.getDepDetails();
-        this.studentCapacity = req.getStudentCapacity();
+        edit(req);
 
     }
 
