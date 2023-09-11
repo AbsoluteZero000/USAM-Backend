@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import app.Backend_USAM.entities.Department;
+import app.Backend_USAM.entities.Staff;
 import app.Backend_USAM.entities.Repositories.DepartmentRepo;
+import app.Backend_USAM.entities.Repositories.StaffRepo;
 import app.Backend_USAM.util.Request.DepartmentCreationRequest;
 
 @RestController
@@ -18,6 +20,7 @@ public class DepartmentController {
 
     @Autowired
     private DepartmentRepo depRepo;
+    private StaffRepo staffRepo;
 
     public DepartmentController(){}
 
@@ -33,7 +36,13 @@ public class DepartmentController {
 
     @PostMapping("/create")
     public Department createDepartment(@RequestBody DepartmentCreationRequest req){
-        return depRepo.save(new Department(req));
+        Department dep = new Department(req);
+        Staff head = staffRepo.findById(req.getOwnerId()).get();
+        dep.setHead(head);
+        head.setDepartment(dep);
+        staffRepo.save(head);
+        return depRepo.save(dep);
+
     }
 
     @PutMapping("/edit")

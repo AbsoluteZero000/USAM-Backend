@@ -371,6 +371,121 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Holiday",
+			"item": [
+				{
+					"name": "CreateHoliday",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Freedom Fighters\",\r\n    \"startDate\" : \"2023-01-01\",\r\n    \"endDate\": \"2023-04-03\",\r\n    \"type\" : \"National\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/holiday/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"holiday",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditHoliday",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Freedom Fighters\",\r\n    \"startDate\" : \"2023-01-01\",\r\n    \"endDate\": \"2023-04-03\",\r\n    \"type\" : \"Religious\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/holiday/edit?id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"holiday",
+								"edit"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetHoliday",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/holiday/holiday?id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"holiday",
+								"holiday"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllHolidays",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/holiday/holidays",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"holiday",
+								"holidays"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }

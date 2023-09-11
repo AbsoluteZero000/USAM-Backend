@@ -26,7 +26,6 @@ public class Department {
     private String depDetails;
     private int studentCapacity;
 
-    private Department(){}
 
     public Department(DepartmentCreationRequest req){
         edit(req);

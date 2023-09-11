@@ -18,7 +18,6 @@ public class Student extends User{
     private int year;
     private float gpa;
 
-    private Student(){}
     public Student(String name, String email, int age, Gender gender, String location, Degree degree, ArrayList<Language> languages, ArrayList<Skill> skills, Date admissionDate, float gpa, int year){
         super(name, email,  age, gender, location, degree, languages, skills);
         this.admissionDate = admissionDate;

@@ -21,7 +21,7 @@ public class Holiday {
     private Date endDate;
     private String type;
 
-    private Holiday(){}
+
 
     public Holiday(String name, Date startDate, Date endDate, String type){
         this.name = name;

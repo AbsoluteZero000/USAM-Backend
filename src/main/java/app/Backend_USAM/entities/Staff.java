@@ -25,8 +25,6 @@ public class Staff extends User{
     private Department department;
 
 
-
-    private Staff(){}
     public Staff(String name, String email, int age, Gender gender, String location, Degree degree, ArrayList<Language> languages, ArrayList<Skill> skills, Date joinDate, String title){
         super(name, email,  age, gender, location, degree, languages, skills);
         this.joinDate = joinDate;
@@ -64,6 +62,13 @@ public class Staff extends User{
     }
     public void setJoinDate(Date joinDate) {
         this.joinDate = joinDate;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 
 

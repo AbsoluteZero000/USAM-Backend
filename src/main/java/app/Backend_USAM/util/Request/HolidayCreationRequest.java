@@ -2,7 +2,6 @@ package app.Backend_USAM.util.Request;
 
 import java.sql.Date;
 
-import javax.xml.crypto.Data;
 
 public class HolidayCreationRequest {
     private String name;
