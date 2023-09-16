@@ -1,14 +1,15 @@
-package app.Backend_USAM.util.Request;
+package app.Backend_USAM.controllers.Request;
 
 import java.sql.Date;
 import java.util.ArrayList;
 
+import app.Backend_USAM.util.enums.Role;
 import app.Backend_USAM.util.enums.Degree;
 import app.Backend_USAM.util.enums.Gender;
 import app.Backend_USAM.util.enums.Language;
 import app.Backend_USAM.util.enums.Skill;
 
-public class StudentCreationRequest {
+public class UserCreationRequest {
     private String name;
     private String email;
     private int age;
@@ -17,10 +18,16 @@ public class StudentCreationRequest {
     private Degree degree;
     private ArrayList<Language> languages;
     private ArrayList<Skill> skills;
-    private Date admissionDate;
-    private int year;
-    private float gpa;
+    private Date startDate;
+    private String title;
+    private Role role;
 
+    public Role getRole() {
+        return role;
+    }
+    public void setRole(Role role) {
+        this.role = role;
+    }
     public String getName() {
         return name;
     }
@@ -42,8 +49,21 @@ public class StudentCreationRequest {
     public Gender getGender() {
         return gender;
     }
+
     public void setGender(Gender gender) {
         this.gender = gender;
+    }
+    public Date getStartDate() {
+        return startDate;
+    }
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+    public String getTitle() {
+        return title;
+    }
+    public void setTitle(String title) {
+        this.title = title;
     }
     public String getLocation() {
         return location;
@@ -70,24 +90,4 @@ public class StudentCreationRequest {
         this.location = location;
     }
 
-
-
-        public Date getAdmissionDate() {
-            return admissionDate;
-        }
-        public void setAdmissionDate(Date admissionDate) {
-            this.admissionDate = admissionDate;
-        }
-        public int getYear() {
-            return year;
-        }
-        public void setYear(int year) {
-            this.year = year;
-        }
-        public float getGpa() {
-            return gpa;
-        }
-        public void setGpa(float gpa) {
-            this.gpa = gpa;
-        }
 }
