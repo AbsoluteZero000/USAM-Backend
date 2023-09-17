@@ -51,7 +51,7 @@ public class UserController {
 
     @GetMapping("/userbyname")
     public User getUserByName(@RequestParam String name){
-        return userRepo.findByName(name);
+        return userRepo.findByName(name).get();
     }
 
     @PutMapping("/edit")
@@ -71,7 +71,7 @@ public class UserController {
 
     @GetMapping("/staff")
     public User getStaffByName(@RequestParam("name") String name){
-        return userRepo.findStaffByName(name);
+        return userRepo.findStaffByName(name).get();
     }
 
     @GetMapping("/sample")

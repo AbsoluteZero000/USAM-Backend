@@ -2,7 +2,14 @@ package app.Backend_USAM.entities;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import app.Backend_USAM.controllers.Request.SignUpRequest;
 import app.Backend_USAM.controllers.Request.UserCreationRequest;
 import app.Backend_USAM.util.enums.Degree;
 import app.Backend_USAM.util.enums.Gender;
@@ -18,7 +25,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class User implements UserDetails{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -43,6 +50,13 @@ public class User {
     public User(){}
     public User(UserCreationRequest req){
         edit(req);
+    }
+    public User(SignUpRequest req){
+        this.name = req.name;
+        this.email = req.email;
+        this.password = req.password;
+        this.age = req.age;
+        this.title = req.title;
     }
     public User(String name, String email, int age, Gender gender, String location, Degree degree, ArrayList<Language> languages, ArrayList<Skill> skills, Date startDate, String title, Role role){
         this.name = name;
@@ -171,6 +185,30 @@ public class User {
 
     public void setLanguages(ArrayList<Language> languages) {
         this.languages = languages;
+    }
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority(role.name()));
+        }
+    @Override
+    public String getUsername() {
+        return email;
+    }
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 
 }
