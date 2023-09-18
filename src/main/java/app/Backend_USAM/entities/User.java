@@ -59,7 +59,7 @@ public class User implements UserDetails{
     private Role role;
     private int departmentId;
     private ArrayList<Integer> postsIds;
-
+    private ArrayList<Integer> tasksIds;
 
     public User(UserCreationRequest req){
         edit(req);
@@ -100,6 +100,11 @@ public class User implements UserDetails{
     public void addToPosts(int id){
         if(postsIds == null)
             postsIds = new ArrayList<Integer>();
+        postsIds.add(id);
+    }
+    public void addToTasksId(int id){
+        if(tasksIds == null)
+            tasksIds = new ArrayList<Integer>();
         postsIds.add(id);
     }
     @Override

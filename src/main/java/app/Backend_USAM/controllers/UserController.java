@@ -46,6 +46,7 @@ public class UserController {
     }
     @GetMapping("user")
     public User getUser(@RequestParam int id){
+
         return userRepo.findById(id).get();
     }
 
