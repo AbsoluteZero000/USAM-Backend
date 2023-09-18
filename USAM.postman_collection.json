@@ -8,16 +8,19 @@
 	},
 	"item": [
 		{
-			"name": "Student",
+			"name": "Auth",
 			"item": [
 				{
-					"name": "CreateStudent",
+					"name": "SignIn",
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": 0,\r\n    \"name\": \"example\",\r\n    \"email\": \"A@gmail.com\",\r\n    \"age\": 34,\r\n    \"gender\": \"Male\",\r\n    \"location\": \"Giza, Egypt\",\r\n    \"degree\": \"BCS\",\r\n    \"languages\": [\r\n        \"ARABIC\",\r\n        \"ENGLISH\"\r\n    ],\r\n    \"skills\": [\r\n        \"Admin\",\r\n        \"Bootstrap\"\r\n    ],\r\n    \"admissionDate\": \"2023-09-10\",\r\n    \"year\": 4,\r\n    \"gpa\": 3.45\r\n}",
+							"raw": "{\r\n    \"name\": \"ahmed\",\r\n    \"email\":\"ahmed@Gmail.com\",\r\n    \"password\": \"hello\",\r\n    \"age\" : 19,\r\n    \"title\": \"Engineer\",\r\n    \"role\": \"STAFF\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -25,14 +28,105 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/student/create",
+							"raw": "http://localhost:8080/api/auth/signup",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"student",
+								"api",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LogIn",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"admin\",\r\n    \"password\": \"admin\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "CreateUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"name\": \"ff\",\r\n    \"email\": \"f@fgmfdadddiffffrfl.com\",\r\n    \"password\": \"hello\",\r\n    \"age\": 34,\r\n    \"gender\": \"Male\",\r\n    \"location\": \"Giza, Egypt\",\r\n    \"degree\": \"BCS\",\r\n    \"languages\": [\r\n        \"ARABIC\",\r\n        \"ENGLISH\"\r\n    ],\r\n    \"skills\": [\r\n        \"Admin\",\r\n        \"Bootstrap\"\r\n    ],\r\n    \"startDate\": \"2023-09-10\",\r\n    \"title\": \"Software Engineering Student\",\r\n    \"role\": \"STAFF\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/user/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
 								"create"
 							]
 						}
@@ -40,13 +134,13 @@
 					"response": []
 				},
 				{
-					"name": "EditStudent",
+					"name": "EditUser",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": 0,\r\n    \"name\": \"example\",\r\n    \"email\": \"A@gmail.com\",\r\n    \"age\": 34,\r\n    \"gender\": \"Male\",\r\n    \"location\": \"Giza, Egypt\",\r\n    \"degree\": \"BCS\",\r\n    \"languages\": [\r\n        \"ARABIC\",\r\n        \"ENGLISH\"\r\n    ],\r\n    \"skills\": [\r\n        \"Admin\",\r\n        \"Bootstrap\"\r\n    ],\r\n    \"admissionDate\": \"2021-09-10\",\r\n    \"year\": 4,\r\n    \"gpa\": 3.45\r\n}",
+							"raw": "{\r\n    \"name\": \"example\",\r\n    \"email\": \"f@gfmsdfaifl.com\",\r\n    \"password\": \"hello\",\r\n    \"age\": 344,\r\n    \"gender\": \"Male\",\r\n    \"location\": \"Giza, Egypt\",\r\n    \"degree\": \"BCS\",\r\n    \"languages\": [\r\n        \"ARABIC\",\r\n        \"ENGLISH\"\r\n    ],\r\n    \"skills\": [\r\n        \"Admin\",\r\n        \"Bootstrap\"\r\n    ],\r\n    \"startDate\": \"2023-09-10\",\r\n    \"title\": \"Software Engineering Student\",\r\n    \"role\": \"STUDENT\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -54,20 +148,20 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/student/edit?id=1",
+							"raw": "http://localhost:8080/user/edit?id=2",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"student",
+								"user",
 								"edit"
 							],
 							"query": [
 								{
 									"key": "id",
-									"value": "1"
+									"value": "2"
 								}
 							]
 						}
@@ -75,45 +169,48 @@
 					"response": []
 				},
 				{
-					"name": "GetAllStudents",
+					"name": "GetAllUsers",
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/student/students",
+							"raw": "http://localhost:8080/user/users",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"student",
-								"students"
+								"user",
+								"users"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "GetStudent",
+					"name": "GetUser",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/student/student?id=1",
+							"raw": "http://localhost:8080/user/user?id=2",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"student",
-								"student"
+								"user",
+								"user"
 							],
 							"query": [
 								{
 									"key": "id",
-									"value": "1"
+									"value": "2"
 								}
 							]
 						}
@@ -126,124 +223,61 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/student/sample",
+							"raw": "http://localhost:8080/user/sample",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"student",
+								"user",
 								"sample"
 							]
 						}
 					},
 					"response": []
-				}
-			]
-		},
-		{
-			"name": "Staff",
-			"item": [
-				{
-					"name": "CreateStaff",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"example\",\r\n    \"email\": \"A@gmail.com\",\r\n    \"age\": 34,\r\n    \"gender\": \"Male\",\r\n    \"location\": \"Giza, Egypt\",\r\n    \"degree\": \"BCS\",\r\n    \"languages\": [\r\n        \"ARABIC\",\r\n        \"ENGLISH\"\r\n    ],\r\n    \"skills\": [\r\n        \"Admin\",\r\n        \"Bootstrap\"\r\n    ],\r\n    \"joinDate\": \"2023-09-10\",\r\n    \"title\": \"Admin\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/staff/create",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"staff",
-								"create"
-							]
-						}
-					},
-					"response": []
 				},
 				{
-					"name": "EditStaff",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"example\",\r\n    \"email\": \"A@gmail.com\",\r\n    \"age\": 34,\r\n    \"gender\": \"Male\",\r\n    \"location\": \"Giza, Egypt\",\r\n    \"degree\": \"BCS\",\r\n    \"languages\": [\r\n        \"ARABIC\",\r\n        \"ENGLISH\"\r\n    ],\r\n    \"skills\": [\r\n        \"Admin\",\r\n        \"Bootstrap\"\r\n    ],\r\n    \"joinDate\": \"2023-09-10\",\r\n    \"title\": \"Admin\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/staff/edit?id=2",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"staff",
-								"edit"
-							],
-							"query": [
-								{
-									"key": "id",
-									"value": "2"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GetAllStaff",
+					"name": "GetStudentByName",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/staff/staff",
+							"raw": "http://localhost:8080/user/staff?name=example",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"staff",
+								"user",
 								"staff"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "example"
+								}
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "GetStaff",
+					"name": "DeleteUser",
 					"request": {
-						"method": "GET",
+						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/staff/singleStaff?id=2",
+							"raw": "http://localhost:8080/user/delete?id=2",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"staff",
-								"singleStaff"
+								"user",
+								"delete"
 							],
 							"query": [
 								{
@@ -254,6 +288,26 @@
 						}
 					},
 					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
 				}
 			]
 		},
@@ -267,7 +321,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\" : \"Software Engineering\",\r\n    \"startDate\" : \"2023-01-01\",\r\n    \"ownerId\" : 2,\r\n    \"depDetails\" : \"whatever\",\r\n    \"studentCapacity\" : 15\r\n}",
+							"raw": "{\r\n    \"name\" : \"Software Engineering\",\r\n    \"startDate\" : \"2023-01-01\",\r\n    \"ownerId\" : 2,\r\n    \"depDetails\" : \"whatever\",\r\n    \"studentCapacity\" : 15,\r\n    \"staffId\":2\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -296,7 +350,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\" : \"Software Department\",\r\n    \"startDate\" : \"2023-01-01\",\r\n    \"ownerId\" : 2,\r\n    \"depDetails\" : \"whatever\",\r\n    \"studentCapacity\" : 15\r\n}",
+							"raw": "{\r\n    \"name\" : \"Software Engineering\",\r\n    \"startDate\" : \"2023-01-01\",\r\n    \"ownerId\" : 2,\r\n    \"depDetails\" : \"this department contains all software engineers working on the Usam WebApplication\",\r\n    \"studentCapacity\" : 15\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -325,12 +379,12 @@
 					"response": []
 				},
 				{
-					"name": "GetDepartment",
+					"name": "GetDepartmentByName",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/dep/dep?id=1",
+							"raw": "http://localhost:8080/dep/departmentbyname?name=Software Engineering",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -338,7 +392,33 @@
 							"port": "8080",
 							"path": [
 								"dep",
-								"dep"
+								"departmentbyname"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Software Engineering"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDepartment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/dep/department?id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dep",
+								"department"
 							],
 							"query": [
 								{
@@ -356,7 +436,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/dep/deps",
+							"raw": "http://localhost:8080/dep/departments",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -364,7 +444,315 @@
 							"port": "8080",
 							"path": [
 								"dep",
-								"deps"
+								"departments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteDepartment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/dep/delete?id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dep",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "CreatePost",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"postTitle\": \"The Amazing SpiderMan\",\r\n    \"postContent\": \"A Comprehensive Review of the amazing SpiderMan\",\r\n    \"ownerId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/post/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"post",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditPost",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"postTitle\": \"The Amazing SpiderMan\",\r\n    \"postContent\": \"A Comprehensive Review of The Amazing SpiderMan\",\r\n    \"ownerId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/post/edit?id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"post",
+								"edit"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllPosts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/post/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"post",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPost",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/post/post?id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"post",
+								"post"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeletePost",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/post/delete?id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"post",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task",
+			"item": [
+				{
+					"name": "CreateTask",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Backend Development\",\r\n    \"duration\" : \"15 years\",\r\n    \"professorId\" : 2,\r\n    \"startDate\": \"2023-04-03\",\r\n    \"members\" : 15,\r\n    \"skills\": [\r\n        \"Admin\",\r\n        \"Bootstrap\"\r\n    ],\r\n    \"taskInformation\": \"blablalblbalblbllablbl this task\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/task/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"task",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditTask",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Backend Development\",\r\n    \"duration\" : \"12 years\",\r\n    \"professorId\" : 2,\r\n    \"startDate\": \"2023-04-03\",\r\n    \"members\" : 15,\r\n    \"skills\": [\r\n        \"Admin\",\r\n        \"Bootstrap\"\r\n    ],\r\n    \"taskInformation\": \"blablalblbalblbllablbl this task\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/task/edit?id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"task",
+								"edit"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllTask",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/task/tasks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"task",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetTask",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/task/task?id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"task",
+								"task"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteTask",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/task/delete?id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"task",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
 							]
 						}
 					},
@@ -484,8 +872,116 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "DeleteHoliday",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/holiday/delete?id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"holiday",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
+		},
+		{
+			"name": "Profile",
+			"item": [
+				{
+					"name": "GetCurrentlyLoggedInUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/profile/getprofile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"profile",
+								"getprofile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditCurrentlyLoggedInUser",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/profile/edit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"profile",
+								"edit"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY5NTA2OTkxMywiZXhwIjoxNjk1MDcxMzUzfQ.j5RokP2IwOmpF0vRy6OqCU4hwkhCVXebOEeO-wdfefE",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }
