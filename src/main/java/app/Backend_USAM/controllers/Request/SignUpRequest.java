@@ -1,5 +1,6 @@
 package app.Backend_USAM.controllers.Request;
 
+import app.Backend_USAM.util.enums.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,4 +16,5 @@ public class SignUpRequest {
     public String password;
     public int age;
     public String title;
+    public Role role;
 }
