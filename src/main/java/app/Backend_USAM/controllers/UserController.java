@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
-
 import app.Backend_USAM.entities.Repositories.UserRepo;
 import app.Backend_USAM.util.enums.Degree;
 import app.Backend_USAM.util.enums.Gender;
@@ -31,15 +29,13 @@ public class UserController {
     @Autowired
     private UserRepo userRepo;
 
-    private PasswordEncoder passwordEncoder;
-
     public UserController(){
 
     }
 
     @PostMapping("/create")
     public User createUser(@RequestBody UserCreationRequest req){
-        req.setPassword(passwordEncoder.encode(req.getPassword()));
+
         return userRepo.save(new User(req));
     }
 
@@ -60,8 +56,9 @@ public class UserController {
 
     @PutMapping("/edit")
     public User editUser(@RequestParam int id, @RequestBody UserCreationRequest req){
+
+
         User User = userRepo.findById(id).get();
-        req.setPassword(passwordEncoder.encode(req.getPassword()));
         User.edit(req);
         return userRepo.save(User);
     }
