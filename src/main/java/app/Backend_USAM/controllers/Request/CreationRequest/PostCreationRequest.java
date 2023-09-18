@@ -1,7 +1,5 @@
 package app.Backend_USAM.controllers.Request.CreationRequest;
 
-import java.sql.Date;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,10 +13,8 @@ import lombok.Setter;
 @Setter
 @Getter
 @NoArgsConstructor
-public class DepartmentCreationRequest {
-    private String name;
-    private Date startDate;
-    private String depDetails;
-    private int studentCapacity;
-    private int staffId;
+public class PostCreationRequest {
+    private String postTitle;
+    private String postContent;
+    private int ownerId;
 }

@@ -33,6 +33,7 @@ public class Department {
     private Date startDate;
     private String depDetails;
     private int studentCapacity;
+    private int headId;
 
     public Department(DepartmentCreationRequest req){
         edit(req);

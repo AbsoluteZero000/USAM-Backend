@@ -24,6 +24,7 @@ public class DataPopulator implements ApplicationRunner{
         User user = new User("admin", "admin", 18, Gender.Male, "Giza", Degree.BCS, null, null, null, "admin", Role.ADMIN);
         user.setPassword(passwordEncoder.encode("admin"));
         userRepo.save(user);
+        System.out.println(System.currentTimeMillis());
     }
 
 }

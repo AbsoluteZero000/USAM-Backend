@@ -26,7 +26,9 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Data
 @Builder
@@ -34,6 +36,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "users")
+@Setter
+@Getter
 public class User implements UserDetails{
 
     @Id
@@ -45,7 +49,6 @@ public class User implements UserDetails{
     private String email;
     private String password;
     private int age;
-
     private Gender gender;
     private String location;
     private Degree degree;
@@ -54,6 +57,8 @@ public class User implements UserDetails{
     private Date startDate;
     private String title;
     private Role role;
+    private int departmentId;
+    private ArrayList<Integer> postsIds;
 
 
     public User(UserCreationRequest req){
@@ -92,107 +97,10 @@ public class User implements UserDetails{
         this.startDate = req.getStartDate();
         this.role = req.getRole();
     }
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
-
-    public Date getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-    public Gender getGender() {
-        return gender;
-    }
-
-    public void setGender(Gender gender) {
-        this.gender = gender;
-    }
-
-    public ArrayList<Skill> getSkills() {
-        return skills;
-    }
-
-    public void setSkills(ArrayList<Skill> skills) {
-        this.skills = skills;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public Degree getDegree() {
-        return degree;
-    }
-
-    public void setDegree(Degree degree) {
-        this.degree = degree;
-    }
-
-    public ArrayList<Language> getLanguages() {
-        return languages;
-    }
-
-    public void setLanguages(ArrayList<Language> languages) {
-        this.languages = languages;
+    public void addToPosts(int id){
+        if(postsIds == null)
+            postsIds = new ArrayList<Integer>();
+        postsIds.add(id);
     }
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

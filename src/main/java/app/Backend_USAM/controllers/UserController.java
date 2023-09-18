@@ -88,6 +88,8 @@ public class UserController {
     }
 
 
-
+    public User editUser(User user){
+        return userRepo.save(user);
+    }
 
 }

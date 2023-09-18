@@ -13,20 +13,29 @@ import org.springframework.web.bind.annotation.RestController;
 
 import app.Backend_USAM.controllers.Request.CreationRequest.DepartmentCreationRequest;
 import app.Backend_USAM.entities.Department;
+import app.Backend_USAM.entities.User;
 import app.Backend_USAM.entities.Repositories.DepartmentRepo;
+import lombok.RequiredArgsConstructor;
 
 
 @RestController
 @RequestMapping("/dep")
+@RequiredArgsConstructor
 public class DepartmentController {
 
     @Autowired
     private DepartmentRepo DepartmentRepo;
+    @Autowired
+    private UserController userController;
 
     @PostMapping("/create")
     public Department createDepartment(@RequestBody DepartmentCreationRequest req){
-
-        return DepartmentRepo.save(new Department(req));
+        Department dep = new Department(req);
+        User user = userController.getUser(req.getStaffId());
+        user.setDepartmentId(dep.getId());
+        dep.setHeadId(req.getStaffId());
+        userController.editUser(user);
+        return DepartmentRepo.save(dep);
     }
 
     @GetMapping("/departments")
