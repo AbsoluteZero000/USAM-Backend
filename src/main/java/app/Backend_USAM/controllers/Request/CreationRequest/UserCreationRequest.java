@@ -22,6 +22,7 @@ import lombok.Setter;
 public class UserCreationRequest {
     private String name;
     private String email;
+    private String password;
     private int age;
     private Gender gender;
     private String location;
