@@ -3,7 +3,7 @@ package app.Backend_USAM.controllers.Auth;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import app.Backend_USAM.controllers.Exceptions.AdminSignUpException;
+import app.Backend_USAM.controllers.Exception.AdminSignUpException;
 import app.Backend_USAM.controllers.Request.LogInRequest;
 import app.Backend_USAM.controllers.Request.SignUpRequest;
 import app.Backend_USAM.controllers.Response.AuthenticationResponse;

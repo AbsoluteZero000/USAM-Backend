@@ -18,7 +18,7 @@ import app.Backend_USAM.util.enums.Gender;
 import app.Backend_USAM.util.enums.Language;
 import app.Backend_USAM.util.enums.Role;
 import app.Backend_USAM.util.enums.Skill;
-import app.Backend_USAM.controllers.Request.UserCreationRequest;
+import app.Backend_USAM.controllers.Request.CreationRequest.UserCreationRequest;
 import app.Backend_USAM.entities.User;
 
 
@@ -27,14 +27,14 @@ import app.Backend_USAM.entities.User;
 public class UserController {
 
     @Autowired
-    UserRepo userRepo;
+    private UserRepo userRepo;
 
     public UserController(){
 
     }
 
     @PostMapping("/create")
-    public User test(@RequestBody UserCreationRequest req){
+    public User createUser(@RequestBody UserCreationRequest req){
 
         return userRepo.save(new User(req));
     }

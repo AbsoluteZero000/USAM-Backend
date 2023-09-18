@@ -10,19 +10,28 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import app.Backend_USAM.controllers.Request.SignUpRequest;
-import app.Backend_USAM.controllers.Request.UserCreationRequest;
+import app.Backend_USAM.controllers.Request.CreationRequest.UserCreationRequest;
 import app.Backend_USAM.util.enums.Degree;
 import app.Backend_USAM.util.enums.Gender;
 import app.Backend_USAM.util.enums.Language;
 import app.Backend_USAM.util.enums.Role;
 import app.Backend_USAM.util.enums.Skill;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "users")
 public class User implements UserDetails{
@@ -47,7 +56,6 @@ public class User implements UserDetails{
     private Role role;
 
 
-    public User(){}
     public User(UserCreationRequest req){
         edit(req);
     }

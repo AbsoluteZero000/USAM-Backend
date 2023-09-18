@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 
 import app.Backend_USAM.entities.User;
-import app.Backend_USAM.controllers.Exceptions.AdminSignUpException;
+import app.Backend_USAM.controllers.Exception.AdminSignUpException;
 import app.Backend_USAM.controllers.Request.LogInRequest;
 import app.Backend_USAM.controllers.Request.SignUpRequest;
 import app.Backend_USAM.controllers.Response.AuthenticationResponse;
